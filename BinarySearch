@@ -1,0 +1,38 @@
+public class BinarySearchTrees
+{
+   static BST m_objBST = new BST();
+   public static void PrintTree(BSTNode objNode) 
+    {
+        if(objNode == null)
+          return;
+        PrintTree(objNode.GetLefNode());
+        int temp = objNode.GetKeyValue();
+        System.out.printf("%d\n",temp);
+        PrintTree(objNode.GetRightNode());
+    }
+  public static void main(String[] args)
+  {
+       m_objBST.Insert(8);
+       m_objBST.insert(3);
+       m_objBST.insert(20);
+       m_objBST.insert(60);
+       m_objBST.insert(81);
+       m_objBST.insert(14);
+       System.out.println("value of 4 should fail k_test");
+       m_objBST.insert(4);
+       System.out.println("value of 7 should fail k_test");
+       m_objBST.insert(7);
+       m_objBST.insert(100);
+       System.out.println("value of 13 should fail k_test");
+       m_objBST.insert(13);
+       System.out.println("tree Prontout with Inorder traversal: ");
+       PrintTree(m_objBST.m_objRootNode);
+       System.out.println("Find Rank of 14, should equal 3 ");
+       m_objBST.FindRank(m_objBST.m_objRootNode, 14);
+       
+      System.out.println("Find Subtree Size of 60, should be 2");
+      m_objBST.FindSubtreeSize(m_objBST.m_objRootNode,60);
+      System.out.println("Max =" + m_objBST.findMax(m_objBST.m_objRootNode));
+      System.out.println("Min =" + m_objBST.findMin(m_objBST.m_objRootNode));
+    }
+}
